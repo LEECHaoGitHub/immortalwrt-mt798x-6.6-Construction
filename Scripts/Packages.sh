@@ -65,11 +65,11 @@ UPDATE_PACKAGE "passwall2" "Openwrt-Passwall/openwrt-passwall2" "main" "pkg"
 UPDATE_PACKAGE "ddns-go" "sirpdboy/luci-app-ddns-go" "main"  #luci-app-ddns-go
 UPDATE_PACKAGE "netspeedtest" "sirpdboy/luci-app-netspeedtest" "master" "" "homebox speedtest"  #homebox speedtest测速
 UPDATE_PACKAGE "poweroffdevice" "sirpdboy/luci-app-poweroffdevice" "js"   #关机
-UPDATE_PACKAGE "luci-app-taskplan" "sirpdboy/luci-app-taskplan" "master"    #计划任务
-UPDATE_PACKAGE "luci-app-watchdog" "sirpdboy/luci-app-watchdog" "main"  #看门狗
-UPDATE_PACKAGE "luci-app-netwizard" "sirpdboy/luci-app-netwizard" "main"  #网络设置向导
-UPDATE_PACKAGE "luci-app-advancedplus" "sirpdboy/luci-app-advancedplus" "main"  #高级设置
-UPDATE_PACKAGE "luci-app-partexp" "sirpdboy/luci-app-partexp" "main"  #分区助手
+UPDATE_PACKAGE "taskplan" "sirpdboy/luci-app-taskplan" "master"    #计划任务
+UPDATE_PACKAGE "watchdog" "sirpdboy/luci-app-watchdog" "main"  #看门狗
+UPDATE_PACKAGE "netwizard" "sirpdboy/luci-app-netwizard" "main"  #网络设置向导
+UPDATE_PACKAGE "advancedplus" "sirpdboy/luci-app-advancedplus" "main"  #高级设置
+UPDATE_PACKAGE "partexp" "sirpdboy/luci-app-partexp" "main"  #分区助手
 
 UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main" 
 UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5" "" "v2dat"
@@ -78,7 +78,7 @@ rm -rf feeds/packages/lang/golang
 UPDATE_PACKAGE "packages_lang_golang" "sbwml/packages_lang_golang" "24.x" 
 UPDATE_PACKAGE "qbittorrent" "sbwml/luci-app-qbittorrent" "master" "" "qt6base qt6tools rblibtorrent"  #qbittorrent下载
 
-UPDATE_PACKAGE "luci-app-authshield" "iv7777/luci-app-authshield" "main"  #防止异常登录保护
+UPDATE_PACKAGE "authshield" "iv7777/luci-app-authshield" "main"  #防止异常登录保护
 UPDATE_PACKAGE "tailscale" "Tokisaki-Galaxy/luci-app-tailscale-community" "master"  #luci-app-tailscale
 UPDATE_PACKAGE "MentoHUST" "KyleRicardo/MentoHUST-OpenWrt-ipk" "master"  #锐捷验证 luci-app-mentohust
 # UPDATE_PACKAGE "diskman" "lisaac/luci-app-diskman" "master"  #luci-app-diskman
