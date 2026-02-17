@@ -30,7 +30,6 @@ UPDATE_PACKAGE() {
 
 	# 克隆 GitHub 仓库
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
-	git clone [https://github.com/isalikai/luci-app-owq-wol.git](https://github.com/isalikai/luci-app-owq-wol.git) package/luci-app-owq-wol
 
 	# 处理克隆的仓库
 	if [[ "$PKG_SPECIAL" == "pkg" ]]; then
@@ -80,7 +79,8 @@ UPDATE_PACKAGE "packages_lang_golang" "sbwml/packages_lang_golang" "24.x"
 UPDATE_PACKAGE "qbittorrent" "sbwml/luci-app-qbittorrent" "master" "" "qt6base qt6tools rblibtorrent"  #qbittorrent下载
 
 UPDATE_PACKAGE "authshield" "iv7777/luci-app-authshield" "main"  #防止异常登录保护
-UPDATE_PACKAGE "luci-app-tailscale-community" "Tokisaki-Galaxy/luci-app-tailscale-community" "master"  #luci-app-tailscale-community
+UPDATE_PACKAGE "owq-wol" "isalikai/luci-app-owq-wol" "main" 
+UPDATE_PACKAGE "tailscale-community" "Tokisaki-Galaxy/luci-app-tailscale-community" "master"  #luci-app-tailscale-community
 UPDATE_PACKAGE "MentoHUST" "KyleRicardo/MentoHUST-OpenWrt-ipk" "master"  #锐捷验证 luci-app-mentohust
 # UPDATE_PACKAGE "diskman" "lisaac/luci-app-diskman" "master"  #luci-app-diskman
 UPDATE_PACKAGE "easytier" "EasyTier/luci-app-easytier" "main"  #luci-app-easytier
