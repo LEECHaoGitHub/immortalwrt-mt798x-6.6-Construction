@@ -2,7 +2,7 @@
 # 整理时间 2026年 1.27
 CONFIG_TARGET_mediatek=y
 CONFIG_TARGET_mediatek_filogic=y
-CONFIG_TARGET_mediatek_filogic_DEVICE_clx_s20p=y
+# CONFIG_TARGET_mediatek_filogic_DEVICE_clx_s20p=y
 # CONFIG_TARGET_mediatek_filogic_DEVICE_netcore_n60-pro=y
 CONFIG_DEVEL=y
 CONFIG_TOOLCHAINOPTS=y
