@@ -87,19 +87,17 @@ if [ -f "$RUST_FILE" ]; then
 fi
 
 # =========================================================
-# 修复 eBPF 与 Daed 的内核依赖冲突 (终极版)
+# 修复 eBPF 与 Daed 的内核依赖冲突 (终极性能版)
 # =========================================================
 echo ">>> [Kernel] 正在修复 eBPF/Daed 编译依赖..."
 
 # 1. 解决 vmlinux-btf 依赖警告
-# 因为该分支可能没有单独的 vmlinux-btf 包，我们从 daed 的 Makefile 中强行剔除它
-# (只要内核开启了 BTF，不需要这个虚拟包也能正常运行)
 find package feeds -name "Makefile" -path "*/daed/*" 2>/dev/null | xargs sed -i 's/+vmlinux-btf//g' 2>/dev/null || true
 echo "✅ 移除了 Daed 中的 vmlinux-btf 虚拟依赖。"
 
 # 2. 强行打通内核 BPF 与 TC (Traffic Control) 前置依赖
-# 直接向 mediatek/filogic 的内核模板注入，防止被 make oldconfig 静默丢弃
 for conf in target/linux/mediatek/filogic/config-*; do
+    # 【关键修正】：if 和 [ 之间必须有空格！
     if[ -f "$conf" ]; then
         echo ">>> 正在为 $conf 注入 eBPF/TC 核心与极致性能配置..."
         
@@ -121,10 +119,8 @@ for conf in target/linux/mediatek/filogic/config-*; do
         # --- 3. BPF 极致性能优化 (榨干路由器算力) ---
         echo "CONFIG_BPF_JIT=y" >> "$conf"
         echo "CONFIG_BPF_JIT_ALWAYS_ON=y" >> "$conf"
-        # 代理软件 (Daed/Clash) 的神级加速特性 (Sockmap 绕过网络栈)
         echo "CONFIG_BPF_STREAM_PARSER=y" >> "$conf"
         echo "CONFIG_NET_SOCK_MSG=y" >> "$conf"
-        # XDP 高速通道
         echo "CONFIG_XDP_SOCKETS=y" >> "$conf"
         
         echo "✅ eBPF 高性能与底层网络调度配置注入完成。"
